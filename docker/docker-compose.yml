@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+
+  perf-k6:
+    image: sebczu/personal:perf-k6-latest
+    container_name: perf-k6
+    environment:
+      OPTIONS: "--duration 1m --vus 50 --rps 100"
+      RQ_HOST: "host.docker.internal:8080"
+      RQ_PATH: "/caffeine/asyncloading/1"
